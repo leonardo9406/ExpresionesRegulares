@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Expresiones Regulares</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        
+    </head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <header>
+                <h1>Expresiones Regulares</h1>
+            </header>
+        </div>
+        <div class="row justify-content-center">
+            <form class="container" action="#" method="#" name="password">
+                
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-3 col-md-3">
+                        <label for=""><h5>Ingrese una contraseña:</h5></label>
+                    </div>
+                    <div class="col-6  col-sm-3 col-md-3">
+                        <input type="text" class="form-control" placeholder="Ejemplo: A111abc¡*?" required>
+                            <a href="#" data-toggle="popover" title="Contraseña" data-content="Una letra Mayúscula seguida   de 3 números, luego seguida de 3 letras minúsculas y luego de tres caracteres especiales">Instrucciones</a>
+                        
+                    </div>
+                    <div class="col-12 col-sm-3 col-md-3">
+                        <button type="submit" class="btn btn-primary btn-md ">Validar</button> 
+                    </div>
+                    
+                </div> 
+            </form>
+        </div>
+                
+            
+    </div>
+
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();  
+        });
+        const forms = document.getElementsByTagName('form')
+    
+        forms[0].onsubmit = e => {
+            e.preventDefault()
+            const inputValue = e.target[0].value
+            inputValue.match(/^[A-Z]{1}\d{3}[a-z]{3}[|°!"#$%&/)(?=¡@'.¨~`¬}+*´:;{,<>_¿ -]{3}$/) ? swal("Muy bien!", "Ha ingresado una contraseña valida!", "success") : swal("Lo sentimos!", "Ha ingresado datos incorrectos!", "error")
+        }
+    </script>
+
+</body>
+
+</html>
